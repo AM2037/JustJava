@@ -1,6 +1,3 @@
 <resources>
     <string name="app_name">Just Java</string>
-    <string name="quantity">0</string>
-    <string name="title">Quantity</string>
-    <string name="order">Order</string>
 </resources>

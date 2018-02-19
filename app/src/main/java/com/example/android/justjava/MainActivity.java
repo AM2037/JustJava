@@ -13,6 +13,9 @@ import java.text.NumberFormat;
  */
 public class MainActivity extends AppCompatActivity {
 
+    //made quantity a global (purple) variable instead of local (black) so the app can add past 3
+    int quantity = 2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,27 +23,43 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * This method is called when the plus button is clicked
+     */
+    public void increment(View view) {
+        quantity = quantity + 1;
+        display(quantity);
+    }
+
+    /**
+     * This method is called when the minus button is clicked
+     */
+    public void decrement(View view) {
+        quantity = quantity - 1;
+        display(quantity);
+    }
+
+
+    /**
      * This method is called when the order button is clicked.
      */
 
     public void submitOrder(View view) {
-        display(2);
+        displayPrice(quantity * 5);
+        //display(2);
         //displayPrice(2 * 5);
-
-
-
 
     /**
      * This method reflects the # of coffees ordered
      */
 
         //create an integer value to store number of coffees
-        int coffeesOrdered = 2;
+        //int quantity = 5; commented out because there is a global quantity variable
         //Use variable
-        display(coffeesOrdered);
-        displayPrice(coffeesOrdered * 5);
+        //display(quantity);
         //commented out 2nd declaration int coffeesOrdered = 2;
     }
+
+
 
 
     /**

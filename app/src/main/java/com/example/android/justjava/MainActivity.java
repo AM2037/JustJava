@@ -44,7 +44,14 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void submitOrder(View view) {
-        displayPrice(quantity * 5);
+        //specify data type which is String then variable name (~name tag) which is priceMessage
+        //initialize with an equal sign and an initial value which is "free" + ;
+        //Only store one string (letters, numbers, or symbols) at a time or a string literal (fixed value)
+        int price = quantity * 5;
+        String priceMessage = "Total: $" + price;
+        priceMessage = priceMessage + "\nThank you!";
+        displayMessage(priceMessage);
+        // she erased displayPrice(quantity * 5); when adding the total string
         //display(2);
         //displayPrice(2 * 5);
 
@@ -78,4 +85,11 @@ public class MainActivity extends AppCompatActivity {
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }
 
+    /**
+     * This method displays the given text on the screen.
+     */
+    private void displayMessage(String message) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(message);
+    }
 }

@@ -5,15 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import java.text.NumberFormat;
-
 
 /**
  * This app displays an order form to order coffee.
  */
 public class MainActivity extends AppCompatActivity {
 
-    //made quantity a global (purple) variable instead of local (black) so the app can add past 3
     int quantity = 2;
 
     @Override
@@ -31,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method is called when the minus button is clicked
+     * This method is called when the minus button is clicked.
+     *
      */
     public void decrement(View view) {
         quantity = quantity - 1;
@@ -41,55 +39,77 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method is called when the order button is clicked.
+     *
+     * Added calculatePrice method and call under submitOrder for Lesson 10.
+     *
+     * price variables are local and are different to each other
      */
 
     public void submitOrder(View view) {
-        //specify data type which is String then variable name (~name tag) which is priceMessage
-        //initialize with an equal sign and an initial value which is "free" + ;
-        //Only store one string (letters, numbers, or symbols) at a time or a string literal (fixed value)
-        int price = quantity * 5;
-        String priceMessage = "Total: $" + price;
-        priceMessage = priceMessage + "\nThank you!";
-        displayMessage(priceMessage);
-        // she erased displayPrice(quantity * 5); when adding the total string
-        //display(2);
-        //displayPrice(2 * 5);
+        int price = calculatePrice();
+        displayMessage(createOrderSummary(price));
 
-    /**
-     * This method reflects the # of coffees ordered
-     */
-
-        //create an integer value to store number of coffees
-        //int quantity = 5; commented out because there is a global quantity variable
-        //Use variable
-        //display(quantity);
-        //commented out 2nd declaration int coffeesOrdered = 2;
     }
 
+    /**
+     * Calculates the price of the order.
+     *
+     * @return total price
+     *
+     */
+    private int calculatePrice() {
+        return quantity * 5;
 
+        //used to say int price = quantity * 5 /n return price;
+    }
+
+    /**
+     * This method creates an order summary
+     *
+     * @param price of the order
+     *
+     * @return text summary
+     */
+    private String createOrderSummary(int price) {
+        String priceMessage = "Name: Kaptain Kunal";
+        priceMessage += "\nQuantity: " + quantity;
+        priceMessage += "\nTotal: $" + price;
+        priceMessage += "\nThank you!";
+        return priceMessage;
+
+        //priceMessage = priceMessage + .. changed to +=
+        /*could have put calculatePrice instead of + price but she showed passing a method
+     * to another method*/
+    }
 
 
     /**
      * This method displays the given quantity value on the screen.
+     *
+     * Renamed number to amount for inputs to a method activity.
      */
-    private void displayQuantity(int number) {
+    private void displayQuantity(int numberOfCoffees) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
-        quantityTextView.setText("" + number);
+        quantityTextView.setText("" + numberOfCoffees);
     }
 
     /**
      * This method displays the given price on the screen.
+     *
+     * commented out when I changed "Price" TextView text to "Order Summary" in XML
      */
-    private void displayPrice(int number) {
+    /*private void displayPrice(int number) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
-    }
+    }*/
 
     /**
      * This method displays the given text on the screen.
+     *
+     * changed R.id from price_text_view to order_summary_text_view & variable names
      */
     private void displayMessage(String message) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(message);
+        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        orderSummaryTextView.setText(message);
     }
 }

@@ -13,10 +13,18 @@
         android:orientation="vertical"
         tools:context="com.example.android.justjava.MainActivity">
 
+        <EditText
+            android:id="@+id/name_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint"
+            android:inputType="textCapWords" />
+
         <!-- Made bottom margin 16dp so there are 16dp of space between each element -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin1"
             android:layout_marginBottom="@dimen/layout_margin1"
             android:text="@string/toppings"
             android:textAllCaps="true"

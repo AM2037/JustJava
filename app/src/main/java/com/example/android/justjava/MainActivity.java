@@ -3,6 +3,7 @@ package com.example.android.justjava;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 
@@ -46,8 +47,21 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void submitOrder(View view) {
+        CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
+        boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
+
+        //Log.v("MainActivity", "Has whipped cream: " + hasWhippedCream);
+
         int price = calculatePrice();
-        displayMessage(createOrderSummary(price));
+        String priceMessage = createOrderSummary(price, hasWhippedCream);
+        displayMessage(priceMessage);
+        //displayMessage(createOrderSummary(price));
+
+        /*Lesson 11.3 Update Order Summary EXAMPLE
+        Log.v("MainActivity", "The price is " + price); <== example to check log
+
+        String priceMessage = createOrderSummary(price);
+        displayMessage(priceMessage);*/
 
     }
 
@@ -65,13 +79,13 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method creates an order summary
-     *
      * @param price of the order
-     *
+     * @param addWhippedCream is whether the user wants whipped cream or not
      * @return text summary
      */
-    private String createOrderSummary(int price) {
+    private String createOrderSummary(int price, boolean addWhippedCream) {
         String priceMessage = "Name: Kaptain Kunal";
+        priceMessage += "\nAdd whipped cream? " + addWhippedCream;
         priceMessage += "\nQuantity: " + quantity;
         priceMessage += "\nTotal: $" + price;
         priceMessage += "\nThank you!";
@@ -107,6 +121,9 @@ public class MainActivity extends AppCompatActivity {
      * This method displays the given text on the screen.
      *
      * changed R.id from price_text_view to order_summary_text_view & variable names
+     *
+     * changed initial TextView type to View which threw an error because only view methods
+     * so cast View into (TextView)
      */
     private void displayMessage(String message) {
         TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);

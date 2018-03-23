@@ -1,80 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginStart="16dp"
-    android:orientation="vertical"
-    tools:context="com.example.android.justjava.MainActivity">
+    android:layout_height="match_parent">
 
-    <!-- Made bottom margin 16dp so there are 16dp of space between each element -->
-    <TextView
-        android:id="@+id/amount_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Quantity"
-        android:textAllCaps="true" />
-
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/layout_margin1"
+        android:layout_marginStart="@dimen/layout_margin1"
+        android:orientation="vertical"
+        tools:context="com.example.android.justjava.MainActivity">
 
-        <Button
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:onClick="decrement"
-            android:text="-" />
-
-        <!-- Did not use margin because this will become a quantity picker with + and - buttons -->
+        <!-- Made bottom margin 16dp so there are 16dp of space between each element -->
         <TextView
-            android:id="@+id/quantity_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:text="2"
+            android:layout_marginBottom="@dimen/layout_margin1"
+            android:text="@string/toppings"
+            android:textAllCaps="true"
+            android:textSize="@dimen/view_text_size" />
+
+        <CheckBox
+            android:id="@+id/whipped_cream_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/layout_margin1"
+            android:paddingLeft="@dimen/padding_checkbox"
+            android:text="@string/topping1"
+            android:textSize="@dimen/view_text_size" />
+
+        <TextView
+            android:id="@+id/amount_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/layout_margin1"
+            android:text="@string/quantity"
+            android:textAllCaps="true"
+            android:textSize="@dimen/view_text_size" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="@dimen/width_height"
+                android:layout_height="@dimen/width_height"
+                android:onClick="decrement"
+                android:text="@string/decrement" />
+
+            <!-- Did not use margin because this will become a quantity picker with + and - buttons -->
+            <TextView
+                android:id="@+id/quantity_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/padding_sides"
+                android:paddingRight="@dimen/padding_sides"
+                android:text="@string/quantity_value"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/view_text_size" />
+
+            <Button
+                android:layout_width="@dimen/width_height"
+                android:layout_height="@dimen/width_height"
+                android:onClick="increment"
+                android:text="@string/increment" />
+
+
+        </LinearLayout>
+
+        <!-- To view displaying price, assign id -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin1"
+            android:text="@string/order_summary"
+            android:textAllCaps="true"
+            android:textSize="@dimen/view_text_size" />
+
+        <!-- used to have id of price_text_view -->
+
+        <TextView
+            android:id="@+id/order_summary_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin1"
+            android:text="@string/order_summary_value"
             android:textColor="@android:color/black"
-            android:textSize="16sp" />
+            android:textSize="@dimen/view_text_size" />
 
+        <!-- Used 16dp marginTop to have 16dp between each element -->
         <Button
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:onClick="increment"
-            android:text="+" />
-
-
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin1"
+            android:onClick="submitOrder"
+            android:text="@string/order" />
     </LinearLayout>
-
-    <!-- To view displaying price, assign id -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16sp"
-        android:text="Order Summary"
-        android:textAllCaps="true"
-        android:textSize="16sp" />
-
-    <!-- used to have id of price_text_view -->
-
-    <TextView
-        android:id="@+id/order_summary_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="$10"
-        android:textColor="@android:color/black"
-        android:textSize="16sp" />
-
-    <!-- Used 16dp marginTop to have 16dp between each element -->
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:onClick="submitOrder"
-        android:text="Order" />
-</LinearLayout>
+</ScrollView>

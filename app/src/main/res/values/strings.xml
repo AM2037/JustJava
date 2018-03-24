@@ -1,14 +1,36 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Just Java</string>
     <string name="hint">Name</string>
+    <!-- Header text for the list of toppings [CHAR LIMIT=20] -->
     <string name="toppings">Toppings</string>
+    <!-- Toppings -->
     <string name="topping1">Whipped cream</string>
     <string name="topping2">Chocolate</string>
+    <!-- Header text for quantity -->
     <string name="quantity">Quantity</string>
+    <!-- Value for quantity -->
     <string name="quantity_value">2</string>
+    <!-- Add and delete buttons -->
     <string name="decrement">-</string>
     <string name="increment">+</string>
+    <!-- Header text for Order Summary -->
     <string name="order_summary">Order summary</string>
+    <!-- Value for order summary -->
     <string name="order_summary_value">$10</string>
+    <!-- Button for order summary -->
     <string name="order">Order</string>
+    <!-- Name for order summary. Shown in the format "Name: Amy" [CHAR LIMIT=NONE] -->
+    <string name="order_summary_name">Name: <xliff:g id="name" example="Amy">%s</xliff:g></string>
+    <!-- Whipped cream for order summary -->
+    <string name="order_summary_whipped_cream">Add whipped cream? \u0020</string>
+    <!-- Chocolate for order summary -->
+    <string name="order_summary_chocolate">Add chocolate? \u0020</string>
+    <!-- Quantity for order summary  -->
+    <string name="order_summary_quantity">Quantity: \u0020</string>
+    <!-- Price for order summary -->
+    <string name="order_summary_price">Total: $</string>
+    <!-- Thank you message for order summary [CHAR LIMIT=NONE] -->
+    <string name="thank_you">Thank you!</string>
 </resources>
+
+<!-- if you don't want parts of strings translated, mark them off with xliff tag in between string tags -->

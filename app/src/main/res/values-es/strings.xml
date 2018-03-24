@@ -18,4 +18,7 @@
     <string name="order_summary_quantity">Cantidad: </string>
     <string name="order_summary_price">Total: $</string>
     <string name="thank_you">¡Gracias!</string>
+    <string name="order_summary_email_subject">Sólo Java Ordenar para <xliff:g id="name" example="Amy">%s</xliff:g></string>
+    <string name="toast_decrement">No puedes tener menos de 1 café</string>
+    <string name="toast_increment">" No puedes tener más de 100 cafés"</string>
 </resources>

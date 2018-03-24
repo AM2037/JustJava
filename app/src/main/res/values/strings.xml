@@ -15,7 +15,9 @@
     <string name="quantity_value">2</string>
     <!-- Add and delete buttons -->
     <string name="decrement">-</string>
+    <string name="toast_decrement">You cannot have less than 1 coffee</string>
     <string name="increment">+</string>
+    <string name="toast_increment">You cannot have more than 100 coffees</string>
     <!-- Header text for Order Summary -->
     <string name="order_summary">Order summary</string>
     <!-- Value for order summary -->
@@ -34,6 +36,8 @@
     <string name="order_summary_price">Total: $</string>
     <!-- Thank you message for order summary [CHAR LIMIT=NONE] -->
     <string name="thank_you">Thank you!</string>
+    <!-- Subject for emailed order summary -->
+    <string name="order_summary_email_subject">Just Java order for <xliff:g id="name" example="Amy">%s</xliff:g></string>
 </resources>
 
 <!-- if you don't want parts of strings translated, mark them off with xliff tag in between string tags -->

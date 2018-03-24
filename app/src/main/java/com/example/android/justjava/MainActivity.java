@@ -33,8 +33,10 @@ public class MainActivity extends AppCompatActivity {
     public void increment(View view) {
         if (quantity == 100) {
             //show error message as a toast-- this for this activity aka context
-            Toast.makeText(this, "You cannot have more than 100 coffees", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_increment), Toast.LENGTH_SHORT).show();
             return;
+//            Toast.makeText(this, "You cannot have more than 100 coffees", Toast.LENGTH_SHORT).show();
+//            return;
         }
         quantity = quantity + 1;
         displayQuantity(quantity);
@@ -48,8 +50,10 @@ public class MainActivity extends AppCompatActivity {
     public void decrement(View view) {
         if (quantity == 1) {
             //show error message as a toast
-            Toast.makeText(this, "You cannot have less than 1 coffee", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_decrement), Toast.LENGTH_SHORT).show();
             return;
+//            Toast.makeText(this, "You cannot have less than 1 coffee", Toast.LENGTH_SHORT).show();
+//            return;
             //exit method immediately without executing lines of code below
         }
         quantity = quantity - 1;
@@ -88,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(Intent.ACTION_SENDTO); //All caps = constant
         intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Just Java order for " + name);
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.order_summary_email_subject, name));
         intent.putExtra(Intent.EXTRA_TEXT, priceMessage); //orderSummary in email body
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);

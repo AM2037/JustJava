@@ -1,39 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Title for the application. [CHAR LIMIT=12] -->
-    <string name="app_name">Just Java</string>
+    <string name="app_name">Sólo Java</string>
     <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=20] -->
-    <string name="hint">Name</string>
+    <string name="hint">Nombre</string>
     <!-- Header text for the list of toppings [CHAR LIMIT=20] -->
-    <string name="toppings">Toppings</string>
+    <string name="toppings">Ingredientes</string>
     <!-- Whipped cream topping 1 [CHAR LIMIT=20] -->
-    <string name="topping1">Whipped cream</string>
+    <string name="topping1">Crema batida</string>
     <!-- Chocolate topping 2 [CHAR LIMIT=20] -->
     <string name="topping2">Chocolate</string>
     <!-- Header text for quantity [CHAR LIMIT=20] -->
-    <string name="quantity">Quantity</string>
+    <string name="quantity">Cantidad</string>
     <!-- Value for quantity [CHAR LIMIT=5] -->
     <string name="quantity_value">2</string>
     <!-- Add and delete buttons -->
     <string name="decrement">-</string>
     <string name="increment">+</string>
     <!-- Header text for Order Summary -->
-    <string name="order_summary">Order summary</string>
+    <string name="order_summary">Ordenar resumen</string>
+    <!-- Button for order summary [CHAR LIMIT=20] -->
+    <string name="order">Ordenar</string>
     <!-- Value for order summary -->
     <string name="order_summary_value">$10</string>
-    <!-- Button for order summary [CHAR LIMIT=20] -->
-    <string name="order">Order</string>
     <!-- Name for order summary. Shown in the format "Name: Amy" [CHAR LIMIT=NONE] -->
-    <string name="order_summary_name">Name: <xliff:g id="name" example="Amy">%s</xliff:g></string>
+    <string name="order_summary_name">Nombre: <xliff:g id="name" example="Amy">%s</xliff:g></string>
     <!-- Whipped cream for order summary \u0020 for space [CHAR LIMIT=NONE] -->
-    <string name="order_summary_whipped_cream">Add whipped cream? \u0020</string>
+    <string name="order_summary_whipped_cream">Agregue la crema batida? \u0020</string>
     <!-- Chocolate for order summary [CHAR LIMIT=NONE] -->
-    <string name="order_summary_chocolate">Add chocolate? \u0020</string>
+    <string name="order_summary_chocolate">Agregue el chocolate? \u0020</string>
     <!-- Quantity for order summary [CHAR LIMIT=NONE] -->
-    <string name="order_summary_quantity">Quantity: \u0020</string>
+    <string name="order_summary_quantity">Cantidad: \u0020</string>
     <!-- Price for order summary -->
     <string name="order_summary_price">Total: $</string>
     <!-- Thank you message for order summary [CHAR LIMIT=NONE] -->
-    <string name="thank_you">Thank you!</string>
+    <string name="thank_you">¡Gracias!</string>
 </resources>
-
-<!-- if you don't want parts of strings translated, mark them off with xliff tag in between string tags -->

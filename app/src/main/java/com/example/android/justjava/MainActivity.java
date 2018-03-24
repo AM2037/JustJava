@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -13,6 +14,7 @@ import android.widget.TextView;
  */
 public class MainActivity extends AppCompatActivity {
 
+    //To test if staying within 100 cups bound change this value and XML to 99
     int quantity = 2;
 
     @Override
@@ -23,8 +25,15 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method is called when the plus button is clicked
+     *
+     * Modified to catch when number of coffees goes above max limit of 100
      */
     public void increment(View view) {
+        if (quantity == 100) {
+            //show error message as a toast-- this for this activity aka context
+            Toast.makeText(this, "You cannot have more than 100 coffees", Toast.LENGTH_SHORT).show();
+            return;
+        }
         quantity = quantity + 1;
         displayQuantity(quantity);
     }
@@ -32,8 +41,15 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method is called when the minus button is clicked.
      *
+     * Modified to catch when number of coffees goes below min limit of 1
      */
     public void decrement(View view) {
+        if (quantity == 1) {
+            //show error message as a toast
+            Toast.makeText(this, "You cannot have less than 1 coffee", Toast.LENGTH_SHORT).show();
+            return;
+            //exit method immediately without executing lines of code below
+        }
         quantity = quantity - 1;
         displayQuantity(quantity);
     }
@@ -45,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
      * Added calculatePrice method and call under submitOrder for Lesson 10.
      *
      * price variables are local and are different to each other
+     *
+     * Used chaining method calls b/c EditText getText returns Editable
      */
 
     public void submitOrder(View view) {
@@ -62,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_checkbox);
         boolean hasChocolate = chocolateCheckBox.isChecked();
 
-        int price = calculatePrice();
+        int price = calculatePrice(hasWhippedCream, hasChocolate);
         String priceMessage = createOrderSummary(name, price, hasWhippedCream, hasChocolate);
         displayMessage(priceMessage);
         //displayMessage(createOrderSummary(price));
@@ -77,12 +95,26 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Calculates the price of the order.
-     *
-     * @return total price
+     * Pass toppings information (whipped cream $1/cup, chocolate $2/cup), x quantity
+     * @param addWhippedCream is whether user wants whipped topping
+     * @param addChocolate is whether user wants chocolate topping
+     * @return total price-- replaced quantity * 5 with quantity * basePrice
      *
      */
-    private int calculatePrice() {
-        return quantity * 5;
+    private int calculatePrice(boolean addWhippedCream, boolean addChocolate) {
+        int basePrice = 5;
+
+        if (addWhippedCream) {
+            basePrice = basePrice + 1;
+        }
+
+        //no else statement necessary because if false code will do nothing
+
+        if (addChocolate) {
+            basePrice = basePrice + 2;
+        }
+
+        return quantity * basePrice;
 
         //used to say int price = quantity * 5 /n return price;
     }

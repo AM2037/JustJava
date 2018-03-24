@@ -87,26 +87,7 @@
 
 
         </LinearLayout>
-
-        <!-- To view displaying price, assign id -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_margin1"
-            android:text="@string/order_summary"
-            android:textAllCaps="true"
-            android:textSize="@dimen/view_text_size" />
-
-        <!-- used to have id of price_text_view -->
-
-        <TextView
-            android:id="@+id/order_summary_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_margin1"
-            android:text="@string/order_summary_value"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/view_text_size" />
+        <!-- OrderSummary header and value TextViews used to go here, deleted for lesson 11 -->
 
         <!-- Used 16dp marginTop to have 16dp between each element -->
         <Button

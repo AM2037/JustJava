@@ -1,5 +1,7 @@
 package com.example.android.justjava;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void submitOrder(View view) {
+
         //Space for user to enter name
         EditText nameField = (EditText) findViewById(R.id.name_field);
         String name = nameField.getText().toString();
@@ -82,7 +85,16 @@ public class MainActivity extends AppCompatActivity {
 
         int price = calculatePrice(hasWhippedCream, hasChocolate);
         String priceMessage = createOrderSummary(name, price, hasWhippedCream, hasChocolate);
-        displayMessage(priceMessage);
+
+        Intent intent = new Intent(Intent.ACTION_SENDTO); //All caps = constant
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Just Java order for " + name);
+        intent.putExtra(Intent.EXTRA_TEXT, priceMessage); //orderSummary in email body
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+
+        //displayMessage(priceMessage); --REMOVED IN LESSON 11.19 because routes to email
         //displayMessage(createOrderSummary(price));
 
         /*Lesson 11.3 Update Order Summary EXAMPLE
@@ -162,16 +174,16 @@ public class MainActivity extends AppCompatActivity {
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }*/
 
-    /**
-     * This method displays the given text on the screen.
-     *
-     * changed R.id from price_text_view to order_summary_text_view & variable names
-     *
-     * changed initial TextView type to View which threw an error because only view methods
-     * so cast View into (TextView)
-     */
-    private void displayMessage(String message) {
-        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
-        orderSummaryTextView.setText(message);
-    }
+//    /**
+//     * This method displays the given text on the screen. Removed for lesson 11
+//     *
+//     * changed R.id from price_text_view to order_summary_text_view & variable names
+//     *
+//     * changed initial TextView type to View which threw an error because only view methods
+//     * so cast View into (TextView)
+//     */
+//    private void displayMessage(String message) {
+//        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+//        orderSummaryTextView.setText(message);
+//    }
 }

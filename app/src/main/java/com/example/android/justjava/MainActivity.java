@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, getString(R.string.toast_increment), Toast.LENGTH_SHORT).show();
             return;
         }
-        quantity = quantity + 1;
+        quantity++;
         displayQuantity(quantity);
     }
 
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             return;
             //exit method immediately without executing lines of code below
         }
-        quantity = quantity - 1;
+        quantity--;
         displayQuantity(quantity);
     }
 

@@ -19,10 +19,20 @@ public class MainActivity extends AppCompatActivity {
     //To test if staying within 100 cups bound change this value and XML to 99
     int quantity = 2;
 
+    CheckBox whippedCreamCheckBox = null; // Global Variables
+    CheckBox chocolateCheckBox = null;
+    EditText nameField = null;
+    TextView quantityTextView = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
+        chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_checkbox);
+        nameField = (EditText) findViewById(R.id.name_field);
+        quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
+
     }
 
     /**
@@ -35,8 +45,6 @@ public class MainActivity extends AppCompatActivity {
             //show error message as a toast-- this for this activity aka context
             Toast.makeText(this, getString(R.string.toast_increment), Toast.LENGTH_SHORT).show();
             return;
-//            Toast.makeText(this, "You cannot have more than 100 coffees", Toast.LENGTH_SHORT).show();
-//            return;
         }
         quantity = quantity + 1;
         displayQuantity(quantity);
@@ -52,8 +60,6 @@ public class MainActivity extends AppCompatActivity {
             //show error message as a toast
             Toast.makeText(this, getString(R.string.toast_decrement), Toast.LENGTH_SHORT).show();
             return;
-//            Toast.makeText(this, "You cannot have less than 1 coffee", Toast.LENGTH_SHORT).show();
-//            return;
             //exit method immediately without executing lines of code below
         }
         quantity = quantity - 1;
@@ -74,17 +80,12 @@ public class MainActivity extends AppCompatActivity {
     public void submitOrder(View view) {
 
         //Space for user to enter name
-        EditText nameField = (EditText) findViewById(R.id.name_field);
         String name = nameField.getText().toString();
-        //Log.v("MainActivity", "Name: " + name);
 
         //Figure out if user wants whipped cream topping
-        CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
         boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
-        //Log.v("MainActivity", "Has whipped cream: " + hasWhippedCream);
 
         //Figure out if user wants chocolate topping
-        CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_checkbox);
         boolean hasChocolate = chocolateCheckBox.isChecked();
 
         int price = calculatePrice(hasWhippedCream, hasChocolate);
@@ -97,15 +98,6 @@ public class MainActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
-
-        //displayMessage(priceMessage); --REMOVED IN LESSON 11.19 because routes to email
-        //displayMessage(createOrderSummary(price));
-
-        /*Lesson 11.3 Update Order Summary EXAMPLE
-        Log.v("MainActivity", "The price is " + price); <== example to check log
-
-        String priceMessage = createOrderSummary(price);
-        displayMessage(priceMessage);*/
 
     }
 
@@ -132,7 +124,6 @@ public class MainActivity extends AppCompatActivity {
 
         return quantity * basePrice;
 
-        //used to say int price = quantity * 5 /n return price;
     }
 
     /**
@@ -152,9 +143,6 @@ public class MainActivity extends AppCompatActivity {
         priceMessage += "\n" + getString(R.string.thank_you);
         return priceMessage;
 
-        //priceMessage = priceMessage + .. changed to +=
-        /*could have put calculatePrice instead of + price but she showed passing a method
-     * to another method*/
     }
 
 
@@ -164,30 +152,7 @@ public class MainActivity extends AppCompatActivity {
      * Renamed number to amount for inputs to a method activity.
      */
     private void displayQuantity(int numberOfCoffees) {
-        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
         quantityTextView.setText("" + numberOfCoffees);
     }
 
-    /**
-     * This method displays the given price on the screen.
-     *
-     * commented out when I changed "Price" TextView text to "Order Summary" in XML
-     */
-    /*private void displayPrice(int number) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
-    }*/
-
-//    /**
-//     * This method displays the given text on the screen. Removed for lesson 11
-//     *
-//     * changed R.id from price_text_view to order_summary_text_view & variable names
-//     *
-//     * changed initial TextView type to View which threw an error because only view methods
-//     * so cast View into (TextView)
-//     */
-//    private void displayMessage(String message) {
-//        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
-//        orderSummaryTextView.setText(message);
-//    }
 }

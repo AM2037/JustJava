@@ -19,10 +19,10 @@ public class MainActivity extends AppCompatActivity {
     //To test if staying within 100 cups bound change this value and XML to 99
     int quantity = 2;
 
-    CheckBox whippedCreamCheckBox = null; // Global Variables
-    CheckBox chocolateCheckBox = null;
-    EditText nameField = null;
-    TextView quantityTextView = null;
+    private CheckBox whippedCreamCheckBox = null; // Global Variables
+    private CheckBox chocolateCheckBox = null;
+    private EditText nameField = null;
+    private TextView quantityTextView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

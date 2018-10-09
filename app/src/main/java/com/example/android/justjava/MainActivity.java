@@ -28,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
-        chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_checkbox);
-        nameField = (EditText) findViewById(R.id.name_field);
-        quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
+        whippedCreamCheckBox = findViewById(R.id.whipped_cream_checkbox);
+        chocolateCheckBox = findViewById(R.id.chocolate_checkbox);
+        nameField = findViewById(R.id.name_field);
+        quantityTextView = findViewById(R.id.quantity_text_view);
 
     }
 

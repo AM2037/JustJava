@@ -7,7 +7,7 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/layout_margin1"
         android:layout_marginStart="@dimen/layout_margin1"
         android:orientation="vertical"
@@ -35,6 +35,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/padding_checkbox"
+            android:paddingStart="@dimen/padding_checkbox"
+            android:paddingRight="@dimen/padding_checkbox"
             android:text="@string/topping1"
             android:textSize="@dimen/view_text_size" />
 
@@ -44,6 +46,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/layout_margin1"
             android:paddingLeft="@dimen/padding_checkbox"
+            android:paddingStart="@dimen/padding_checkbox"
+            android:paddingRight="@dimen/padding_checkbox"
             android:text="@string/topping2"
             android:textSize="@dimen/view_text_size" />
 
